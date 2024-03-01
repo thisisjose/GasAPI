@@ -15,7 +15,7 @@ namespace GasApii.Services
             var mongoClient = new MongoClient(databaseSettings.Value.ConnectionString);
 
             var mongoDB = mongoClient.GetDatabase(databaseSettings.Value.DatabaseName);
-            _motorCollection = mongoDB.GetCollection<Motor>(databaseSettings.Value.CollectionName + "_motor");
+            _motorCollection = mongoDB.GetCollection<Motor>(databaseSettings.Value.CollectionName);
         }
 
         public async Task<List<Motor>> GetAsync() => await _motorCollection.Find(_ => true).ToListAsync();
