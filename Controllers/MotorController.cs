@@ -18,7 +18,7 @@ namespace GasApii.Controllers;
         _motorServices = motorServices;
     }
 
-    ///Obtener todos los Usuarios
+    ///Obtener todos los Motoress
     [HttpGet]
     public async Task<IActionResult> GetMotor()
     {
@@ -26,14 +26,14 @@ namespace GasApii.Controllers;
         return Ok(usuarios);
     }
 
-    ///Obtener Usuario por Id
+    ///Obtener Motor por Id
     [HttpGet("{Id}")]
     public async Task<IActionResult> GetMotorById(string Id)
     {
         return Ok(await _motorServices.GetMotorById(Id));
     }
 
-    ///Crear Usuario
+    ///Crear Motor
     [HttpPost]
     public async Task<IActionResult> CreateMotr([FromBody] Motor motor)
     {
@@ -47,7 +47,7 @@ namespace GasApii.Controllers;
         return Created("Created", true);
     }
 
-    ///Actualizar Usuario
+    ///Actualizar Motor
     [HttpPut("{Id}")]
     public async Task<IActionResult> UpdateMotor([FromBody] Motor motor, string Id)
     {
@@ -61,7 +61,7 @@ namespace GasApii.Controllers;
         return Created("Created", true);
     }
 
-    ///Eliminar Usuario
+    ///Eliminar Motor
     [HttpDelete]
     public async Task<IActionResult> DeleteMotor(string Id)
     {
