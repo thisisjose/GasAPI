@@ -20,6 +20,6 @@ namespace GasApii.Models
         public DateTime Fecha { get; set; }
 
         [BsonElement("celnumber")]
-        public int celnumber { get; set; }     
+        public int celnumber { get; set; }
     }
 }
