@@ -15,7 +15,7 @@ namespace GasApii.Services
             var mongoClient = new MongoClient(databaseSettings.Value.ConnectionString);
 
             var mongoDB = mongoClient.GetDatabase(databaseSettings.Value.DatabaseName);
-            _mensajeCollection = mongoDB.GetCollection<Mensaje>(databaseSettings.Value.CollectionName);
+            _mensajeCollection = mongoDB.GetCollection<Mensaje>(databaseSettings.Value.Collections["Mensaje"]);
         }
 
         public async Task<List<Mensaje>> GetAsync() => await _mensajeCollection.Find(_ => true).ToListAsync();

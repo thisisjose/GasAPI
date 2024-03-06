@@ -15,7 +15,7 @@ namespace GasApii.Services
             var mongoClient = new MongoClient(databaseSettings.Value.ConnectionString);
 
             var mongoDB = mongoClient.GetDatabase(databaseSettings.Value.DatabaseName);
-            _SensorCollection = mongoDB.GetCollection<Sensor>(databaseSettings.Value.CollectionName);
+            _SensorCollection = mongoDB.GetCollection<Sensor>(databaseSettings.Value.Collections["Sensores"]);
         }
 
         public async Task<List<Sensor>> GetAsync() => await _SensorCollection.Find(_ => true).ToListAsync();

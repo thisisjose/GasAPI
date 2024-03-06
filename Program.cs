@@ -20,10 +20,12 @@ namespace GasApii
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddSingleton<MotorServices>();
-            builder.Services.AddSingleton<UsuarioServices>();
-            builder.Services.AddSingleton<MensajeServices>();
-            builder.Services.AddSingleton<SensorServices>();
+
+            //
+            builder.Services.AddScoped<MotorServices>();
+            builder.Services.AddScoped<UsuarioServices>();
+            builder.Services.AddScoped<MensajeServices>();
+            builder.Services.AddScoped<SensorServices>();
 
 
             var app = builder.Build();
