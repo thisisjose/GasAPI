@@ -19,7 +19,7 @@ namespace GasApii.Models
         [BsonElement("Fecha")]
         public DateTime Fecha { get; set; }
 
-        [BsonElement("Ubicacion")]
-        public string Ubicacion { get; set; } = string.Empty;
+        [BsonElement("celnumber")]
+        public int celnumber { get; set; }     
     }
 }

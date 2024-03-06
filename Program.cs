@@ -21,6 +21,9 @@ namespace GasApii
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddSingleton<MotorServices>();
+            builder.Services.AddSingleton<UsuarioServices>();
+            builder.Services.AddSingleton<MensajeServices>();
+            builder.Services.AddSingleton<SensorServices>();
 
 
             var app = builder.Build();
