@@ -49,17 +49,20 @@ namespace GasApii.Controllers;
 
     ///Actualizar Sensor
     [HttpPut("{Id}")]
+    [HttpPut("{Id}")]
     public async Task<IActionResult> UpdateSensor([FromBody] Sensor sensor, string Id)
     {
         if (sensor == null)
             return BadRequest();
-        //if (motor.Nombre == string.Empty)
-        //    ModelState.AddModelError("Name", "El usuario no debe estar vacio");
-        //motor.Id = Id;
 
-        await _sensorServices.InsertSensor(sensor);
-        return Created("Created", true);
+        // Actualizar el ID del sensor con el valor proporcionado en la URL
+        sensor.Id = Id;
+
+        await _sensorServices.UpdateSensor(sensor);
+
+        return Ok(new { message = "Sensor actualizado correctamente" });
     }
+
 
     ///Eliminar Sensor
     [HttpDelete]

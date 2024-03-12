@@ -11,7 +11,7 @@ namespace GasApii.Models
         public string Id = string.Empty;
 
         [BsonElement("TipoMensaje")]
-        public int TipoMensaje{ get; set; }
+        public string TipoMensaje{ get; set; } = string.Empty;
 
         [BsonElement("Texto")]
         public string Texto{ get; set; } = string.Empty;

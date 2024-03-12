@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GasApii.Controllers;
 
-    [ApiController]
-    [Route("api/[controller]")]
-    public class MotorController : ControllerBase
-    {
+[ApiController]
+[Route("api/[controller]")]
+public class MotorController : ControllerBase
+{
     private readonly ILogger<MotorController> _logger;
 
     private readonly MotorServices _motorServices;
@@ -53,12 +53,13 @@ namespace GasApii.Controllers;
     {
         if (motor == null)
             return BadRequest();
-        //if (motor.Nombre == string.Empty)
-        //    ModelState.AddModelError("Name", "El usuario no debe estar vacio");
-        //motor.Id = Id;
 
-        await _motorServices.InsertMotor(motor);
-        return Created("Created", true);
+        // Actualizar el ID del motor con el valor proporcionado en la URL
+        motor.Id = Id;
+
+        await _motorServices.UpdateMotor(motor);
+
+        return Ok(new { message = "Motor actualizado correctamente" });
     }
 
     ///Eliminar Motor

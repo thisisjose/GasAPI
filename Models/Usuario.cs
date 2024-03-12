@@ -19,7 +19,7 @@ namespace GasApii.Models
         [BsonElement("password")]
         public string password { get; set; } = string.Empty;
 
-        [BsonElement("fecha")]
-        public int fecha { get; set; }
+        [BsonElement("celnumber")]
+        public int celnumber { get; set; }
     }
 }

@@ -53,13 +53,15 @@ public class UsuarioController : ControllerBase
     {
         if (usuario == null)
             return BadRequest();
-        //if (motor.Nombre == string.Empty)
-        //    ModelState.AddModelError("Name", "El usuario no debe estar vacio");
-        //motor.Id = Id;
 
-        await _usuarioServices.InsertUsuario(usuario);
-        return Created("Created", true);
+        // Actualizar el ID del usuario con el valor proporcionado en la URL
+        usuario.Id = Id;
+
+        await _usuarioServices.UpdateUsuario(usuario);
+
+        return Ok(new { message = "Usuario actualizado correctamente" });
     }
+
 
     ///Eliminar Usuario
     [HttpDelete]
